@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Choice Bitumen Industries</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #4fa2e7;
+      --color-secondary: #92b962;
+      --color-logo-blue: #4fa2e7;
+      --color-logo-green: #92b962;
+    }
+    [data-theme="dark"] {
+    --color-primary: #92b962;
+    --color-secondary: #4fa2e7;
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #e4e6eb;
+    --color-text-muted: #b0b3b8;
+    --color-border: #393939;
+    }
+    .logo img {
+      max-height: 125px;
+    }
+    #theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      color: var(--color-text-muted, #5a6474);
+      transition: color 0.3s ease;
+    }
+    #theme-toggle:hover {
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader"><div class="spinner"></div></div>
+
+  <!-- Header & Navigation -->
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo"><img src="logo.png" alt="First Choice Bitumen Logo" /></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li>
+          <a href="#products">Products</a>
+          <ul class="dropdown">
+            <li><a href="rs1.html">RS-1</a></li>
+            <li><a href="ss1.html">SS-1</a></li>
+            <li><a href="ms.html">MS</a></li>
+            <li><a href="coldmix.html">ColdMix</a></li>
+            <li><a href="wasteplastic.html">Waste Plastic</a></li>
+          </ul>
+        </li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-extra">
+        <button id="theme-toggle" title="Toggle theme"></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-slider-tabs">  
+  <div class="hero-slide active" style="background-image: url('home-1.png');"></div>
+  <div class="hero-slide" style="background-image: url('home-2.png');"></div>
+  <div class="hero-slide" style="background-image: url('home-3.png');"></div>
+  <div class="hero-slide" style="background-image: url('home-4.png');"></div>
+  <div class="hero-slide" style="background-image: url('home-5.png');"></div>
+
+  <div class="hero-content" style="margin-top: 40px;">
+    <h1 class="hero-title">Shaping Roads, Building Futures</h1>
+    <p class="hero-subtitle">Bihar's Trusted Name in Bitumen Emulsions for Road & Infrastructure Development</p>
+    <div class="hero-buttons" style="margin-top: 40px;">
+        <a href="#products" class="btn btn-primary" style="margin-right: 15px">Explore Products</a>
+        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+      </div>
+    <div class="hero-tabs" style="margin-inline-start: 40px;">
+    <button class="tab active" aria-label="Slide 1"></button>
+    <button class="tab" aria-label="Slide 2"></button>
+    <button class="tab" aria-label="Slide 3"></button>
+    <button class="tab" aria-label="Slide 4"></button>
+    <button class="tab" aria-label="Slide 5"></button>  
+  </div>
+</section>
+
+
+  <!-- About Section -->
+  <section id="about" class="container animate-on-scroll" style="padding:80px 0">
+    <h2 class="section-title">Who We Are</h2>
+    <div class="about-content" style="display: flex; flex-wrap: wrap; gap: 40px;">
+      <div class="about-text" style="flex: 1 1 45%; min-width: 300px;">
+        <p style="font-size: 1.1rem; color: var(--color-text-muted);">
+          <strong>First Choice Bitumen Industries</strong> is a leading manufacturer of high-performance bituminous products, serving the road construction, repair, and infrastructure industries since 2023. We combine modern technology with a commitment to purity and sustainability, offering solutions like RS-1, SS-1, MS, ColdMix, and Waste Plastic modified bitumen. Our products drive road durability, eco-responsibility, and cost effectiveness.
+          <br /><br />
+       </p>
+      </div>
+      <div
+        class="stats-container animate-on-scroll"
+        style="
+          flex: 1 1 45%;
+          display: flex;
+          justify-content: space-around;
+          background: var(--color-surface);
+          padding: 40px;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          text-align: center;
+          min-width: 300px;
+        "
+      >
+        <div class="stat-item">
+          <div class="stat-number" data-target="50" style="font-size: 3rem; font-weight: 700; color: var(--color-primary)">0</div>
+          <div class="stat-label" style="color: var(--color-text-muted)">Clients Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="5" style="font-size: 3rem; font-weight: 700; color: var(--color-primary)">0</div>
+          <div class="stat-label" style="color: var(--color-text-muted)">Products</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="2" style="font-size: 3rem; font-weight: 700; color: var(--color-primary)">0</div>
+          <div class="stat-label" style="color: var(--color-text-muted)">Years Expertise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="container animate-on-scroll" style="padding: 80px 0">
+    <h2 class="section-title">Our Products</h2>
+    <div class="services-grid">
+      <a href="rs1.html" class="service-card">
+        <h3>RS-1 Emulsion</h3>
+        <img src="rs1-thumbnail.png" alt="RS-1 Drum" />
+        <p>Rapid Setting emulsion for tack coat, patchwork and surface dressing.</p>
+      </a>
+      <a href="ss1.html" class="service-card">
+        <h3>SS-1 Emulsion</h3>
+        <img src="ss1-thumbnail.png" alt="SS-1 Drum" />
+        <p>Slow Setting emulsion for prime coat, dust control, and stabilization.</p>
+      </a>
+      <a href="ms.html" class="service-card">
+        <h3>MS Emulsion</h3>
+        <img src="ms-thumbnail.png" alt="MS Drum" />
+        <p>Medium Setting emulsion for patch repairs, premix, and open-graded mix.</p>
+      </a>
+      <a href="coldmix.html" class="service-card">
+        <h3>ColdMix</h3>
+        <img src="coldmix.png" alt="ColdMix Bag" />
+        <p>Cold-applied, ready-to-use bituminous mix for instant road repairs.</p>
+      </a>
+      <a href="wasteplastic.html" class="service-card">
+        <h3>Waste Plastic Modified Bitumen</h3>
+        <img src="wasteplastic.png" alt="Waste Plastic Bitumen" />
+        <p>Eco-conscious, high-performance bitumen made with recycled waste plastics.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container animate-on-scroll" style="padding: 80px 0;">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-wrapper" style="display: grid; grid-template-columns: 2fr 1fr; gap: 50px; background: var(--color-surface); padding: 50px; border-radius: 8px; box-shadow: var(--shadow-md);">
+      <form id="contact-form" style="display: flex; flex-direction: column;">
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="name">Name *</label>
+          <input id="name" name="name" type="text" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);" />
+          <div class="error-message" style="color:#e53e3e; display:none;"></div>
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required style="width: 100%; padding:12px; border-radius:8px; border:1px solid var(--color-border);" />
+          <div class="error-message" style="color:#e53e3e; display:none;"></div>
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border); min-height: 120px;"></textarea>
+          <div class="error-message" style="color:#e53e3e; display:none;"></div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="padding: 12px 20px; border-radius: 8px; border:none; cursor:pointer;">Send Message</button>
+        <div id="form-status" style="margin-top: 20px; font-weight: 500;"></div>
+      </form>
+      <div class="contact-info" style="color: var(--color-text-muted); font-size: 1rem;">
+        <h3>First Choice Bitumen Industries</h3>
+        <p><b>Address:</b><br />Mohallah - Chakahmad, Bhikhanpura South,<br />Near Pokhar Bhinda, Panchayat Khabra,<br />P.S.- Sadar, Anchal- Mushari,<br />Distt.- Muzaffarpur - 842002</p>
+        <p><b>Call:</b> <a href="tel:9031607691" style="color: var(--color-primary)">9031607691</a>, <a href="tel:9031741222" style="color: var(--color-primary)">9031741222</a></p>
+        <p><b>Email:</b> <a href="mailto:info@firstchoicebitumenindustries.com" style="color: var(--color-primary)">info@firstchoicebitumenindustries.com</a></p>
+        <p><b>GSTIN:</b> 10DFBPS3235E1ZZ</p>
+        <a href="https://maps.app.goo.gl/ZGPoR1D19xcUwuiv6" class="btn btn-secondary" target="_blank" style="display: inline-block; margin-top: 15px; padding: 10px 20px; border-radius: 20px; border: 1px solid var(--color-border); color: var(--color-primary); text-decoration: none; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor = 'var(--color-primary)'; this.style.color='white';" onmouseout="this.style.backgroundColor = 'transparent'; this.style.color='var(--color-primary)';">View on Map</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: var(--color-surface); padding: 20px 0; text-align: center; border-top: 1px solid var(--color-border); margin-top: 50px;">
+    <p style="color: var(--color-text-muted)">&copy; 2023-2025 First Choice Bitumen Industries. Our Purity is Our Identity.</p>
+  </footer>
+
+  <!-- Back to top button -->
+  <a id="back-to-top" href="#" title="Back to top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; text-decoration: none; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 100;">↑</a>
+
+  <script src="script.js"></script>
+  <script>
+const slides = document.querySelectorAll('.hero-slide');
+const tabs = document.querySelectorAll('.hero-tabs .tab');
+let currentSlide = 0;
+let autoAdvanceTimeout;
+
+// Show slide and highlight correct tab
+function activateSlide(index) {
+  slides.forEach(s => s.classList.remove('active'));
+  tabs.forEach(t => t.classList.remove('active'));
+  slides[index].classList.add('active');
+  tabs[index].classList.add('active');
+  currentSlide = index;
+}
+
+// Auto advance slides every 5 seconds
+function startAutoAdvance() {
+  autoAdvanceTimeout = setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    activateSlide(currentSlide);
+  }, 5000);
+}
+
+// Stop auto advance (used when user clicks manually)
+function stopAutoAdvance() {
+  clearInterval(autoAdvanceTimeout);
+}
+
+// Initialize the slider
+activateSlide(0);
+startAutoAdvance();
+
+// Add click listeners on tabs for manual control
+tabs.forEach((tab, idx) => {
+  tab.addEventListener('click', () => {
+    stopAutoAdvance();
+    activateSlide(idx);
+    startAutoAdvance(); // Reset auto advance timer so user has 5 secs before next auto slide
+  });
+});
+</script>
+</body>
+</html>

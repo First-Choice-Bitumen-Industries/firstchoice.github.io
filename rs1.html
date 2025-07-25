@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RS-1 Emulsion - First Choice Bitumen Industries</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .rs1-summary-container {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      margin-bottom: 70px;
+      margin-top: 30px;
+      justify-content: space-between;
+    }
+    .rs1-summary-text {
+      flex: 1 1 60%;
+      font-size: 1.45rem;
+      line-height: 2.1;
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .rs1-summary-image {
+      flex: 1 1 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .rs1-summary-image img {
+      width: 360px;
+      max-width: 100%;
+      max-height: 410px;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      background: #eaeaea;
+    }
+    .rs1-summary-image label {
+      display: block;
+      margin-top: 8px;
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      text-align: right;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+      opacity: 0;
+      margin: 0 0 10px 0;
+      border-left: 3px solid var(--color-primary);
+      padding-left: 1em;
+    }
+    .faq-question {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 28px;
+      font-size: 1.15rem;
+      color: var(--color-primary);
+      position: relative;
+      letter-spacing: 0.01em;
+    }
+    .faq-question::after {
+      content: '▼';
+      float: right;
+      font-size: 0.8em;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      opacity: 1;
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(180deg);
+    }
+    .rs1-section {
+      margin-bottom: 2.4em;
+    }
+    .rs1-section h2 {
+      margin-top: 2em;
+      margin-bottom: 15px;
+      color: var(--color-primary);
+      font-size: 1.5rem;
+    }
+    .rs1-section ul {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    #rate-info {
+      font-weight: 600;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 900px) {
+      .rs1-summary-container {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .rs1-summary-image {
+        align-items: flex-start;
+        margin-bottom: 16px;
+      }
+      .rs1 img {
+        width: 100%;
+        max-height: 280px;
+      }
+      .rs1-summary-text {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+  <script>
+    // FAQ animation
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const container = q.parentElement;
+          container.classList.toggle('open');
+        });
+      });
+      // Optional: RS-1 image dynamic preview
+      const fileInput = document.getElementById('rs1imgfile');
+      if(fileInput){
+        fileInput.addEventListener('change', function(e){
+          const img = document.getElementById('rs1img');
+          if (this.files && this.files[0]) {
+            img.src = URL.createObjectURL(this.files[0]);
+            img.style.display='block';
+          }
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo"><img src="logo.png" alt="First Choice Bitumen Logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">Products</a>
+          <ul class="dropdown">
+            <li><a href="rs1.html">RS-1</a></li>
+            <li><a href="ss1.html">SS-1</a></li>
+            <li><a href="ms.html">MS</a></li>
+            <li><a href="coldmix.html">ColdMix</a></li>
+            <li><a href="wasteplastic.html">Waste Plastic</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-extra">
+        <button id="theme-toggle" title="Toggle theme"></button>
+      </div>
+    </nav>
+  </header>
+<section class="hero">  
+  <div class="hero-background"></div>
+  <div class="hero-content" style="margin-top: 300px;">
+    <h1>RS-1 (Rapid Setting) Emulsion</h1>
+  </div>
+</section>
+
+  <main class="container" style="padding: 100px 20px 60px;">
+    <section class="rs1-summary-container">
+      <div class="rs1-summary-text">
+        <p>
+          <b>RS-1</b> is a high-performance <b>rapid setting cationic bitumen emulsion</b> utilizing modern emulsion chemistry for quick, reliable, and green road construction solutions.<br><br>
+          <b>What is RS-1?</b><br>
+          RS-1 is manufactured by blending carefully selected bitumen, water, and eco-safe emulsifiers in precise proportions. The result is a stable liquid that spreads thinly and bonds instantly upon application to aggregates or old road surfaces.<br><br>
+          <b>Why RS-1?</b>
+        </p>
+        <ul>
+          <li>Delivers extremely fast set/break for minimal project downtime</li>
+          <li>Creates a tenacious, flexible tack layer between asphalt layers</li>
+          <li>Excellent penetration and adhesion, even on slightly damp or dusty bases</li>
+          <li>Complies with leading Indian and international standards (IS 8887, MoRTH)</li>
+          <li>Eco-friendly, ready-to-use, safer than hot bitumen, lower VOCs and energy usage</li>
+          <li>Speeds up site turnover: Most roads can reopen to traffic quicker</li>
+        </ul>
+        <p>
+          This makes RS-1 the contractor’s choice for national highway works, rural roads, urban patch repairs, and any project where time, safety, and bond strength are critical.<br>
+        </p>
+      </div>
+      <div class="rs1-summary-image">
+        <img id="rs1img" src="rs1.png" alt="RS-1 Bitumen Emulsion Sample" style="display:block;"/>
+      </div>
+    </section>
+
+    <section class="rs1-section">
+      <h2>Applications</h2>
+      <ul>
+        <li>Tack coat on existing bituminous or concrete pavements before laying new asphalt layers</li>
+        <li>Patchwork and pothole repair for highways, city roads, and rural streets</li>
+        <li>Surface dressing and preventive road maintenance</li>
+        <li>Primer on granular base or sub-base (where specified)</li>
+      </ul>
+    </section>
+
+    <p id="rate-info" style="font-weight: 600; margin-bottom: 30px;"></p>
+
+
+    <section class="rs1-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-question">What is RS-1?</div>
+        <div class="faq-answer">
+          RS-1 is a rapid-setting, cationic bitumen emulsion used primarily as a tack coat in road construction projects.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is the coverage per drum?</div>
+        <div class="faq-answer">
+          Approximately 80–100 m² per 200kg drum (as tack coat), depending on surface texture and porosity.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is dilution with water allowed?</div>
+        <div class="faq-answer">
+          Dilution is recommended only as per project specifications. Excessive dilution can affect performance.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How do I store RS-1 emulsion?</div>
+        <div class="faq-answer">
+          Keep drums tightly sealed, protected from direct sunlight and freezing conditions.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <p><a href="index.html#products" class="btn btn-secondary" style="margin-top: 30px; display: inline-block;">&#8592; Back to Products</a></p>
+  </section>
+
+  <footer style="background-color: var(--color-surface); text-align: center; padding: 20px 0; border-top: 1px solid var(--color-border);">
+    <p style="color: var(--color-text-muted);">&copy; 2023-2025 First Choice Bitumen Industries. Our Purity is Our Identity.</p>
+  </footer>
+
+  <a id="back-to-top" href="#" title="Back to top">↑</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
