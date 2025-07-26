@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RS-1 Emulsion - First Choice Bitumen Industries</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .coldmix-summary-container {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      margin-bottom: 70px;
+      margin-top: 30px;
+      justify-content: space-between;
+    }
+    .coldmix-summary-text {
+      flex: 1 1 60%;
+      font-size: 1.45rem;
+      line-height: 2.1;
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .coldmix-summary-image {
+      flex: 1 1 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .coldmix-summary-image img {
+      width: 360px;
+      max-width: 100%;
+      max-height: 410px;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      background: #eaeaea;
+    }
+    .ms-summary-image label {
+      display: block;
+      margin-top: 8px;
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      text-align: right;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+      opacity: 0;
+      margin: 0 0 10px 0;
+      border-left: 3px solid var(--color-primary);
+      padding-left: 1em;
+    }
+    .faq-question {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 28px;
+      font-size: 1.15rem;
+      color: var(--color-primary);
+      position: relative;
+      letter-spacing: 0.01em;
+    }
+    .faq-question::after {
+      content: '▼';
+      float: right;
+      font-size: 0.8em;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      opacity: 1;
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(180deg);
+    }
+    .coldmix-section {
+      margin-bottom: 2.4em;
+    }
+    .coldmix-section h2 {
+      margin-top: 2em;
+      margin-bottom: 15px;
+      color: var(--color-primary);
+      font-size: 1.5rem;
+    }
+    .ms-section ul {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    #rate-info {
+      font-weight: 600;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 900px) {
+      .coldmix-summary-container {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .coldmix-summary-image {
+        align-items: flex-start;
+        margin-bottom: 16px;
+      }
+      .coldmix img {
+        width: 100%;
+        max-height: 280px;
+      }
+      .coldmix-summary-text {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+  <script>
+    // FAQ animation
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const container = q.parentElement;
+          container.classList.toggle('open');
+        });
+      });
+      // Optional: RS-1 image dynamic preview
+      const fileInput = document.getElementById('coldmiximgfile');
+      if(fileInput){
+        fileInput.addEventListener('change', function(e){
+          const img = document.getElementById('coldmiximg');
+          if (this.files && this.files[0]) {
+            img.src = URL.createObjectURL(this.files[0]);
+            img.style.display='block';
+          }
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo"><img src="logo.png" alt="First Choice Bitumen Logo" /></a>
+      <ul class="nav-links">
+        <li>
+          <a href="#">Products</a>
+          <ul class="dropdown">
+            <li><a href="rs1.html">RS-1</a></li>
+            <li><a href="ss1.html">SS-1</a></li>
+            <li><a href="ms.html">MS</a></li>
+            <li><a href="coldmix.html">ColdMix</a></li>
+            <li><a href="wasteplastic.html">Waste Plastic</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+  <span class="hamburger-bar"></span>
+  <span class="hamburger-bar"></span>
+  <span class="hamburger-bar"></span>
+</button>
+<!-- Mobile navigation -->
+    <ul id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <li>
+        <button class="mobile-dropdown-toggle" aria-expanded="false" aria-controls="mobile-products-submenu">Products</button>
+        <ul id="mobile-products-submenu" class="mobile-dropdown">
+          <li><a href="rs1.html">RS-1</a></li>
+          <li><a href="ss1.html">SS-1</a></li>
+          <li><a href="ms.html">MS</a></li>
+          <li><a href="coldmix.html">ColdMix</a></li>
+          <li><a href="wasteplastic.html">Waste Plastic</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+      <div class="nav-extra">
+        <button id="theme-toggle" title="Toggle theme"></button>
+      </div>
+    </nav>
+  </header>
+<section class="hero">  
+  <div class="hero-background-coldmix"></div>
+  <div class="hero-content" style="margin-top: 300px;">
+    <h1>ColdMix</h1>
+  </div>
+</section>
+
+  <main class="container" style="padding: 100px 20px 60px;">
+    <section class="coldmix-summary-container">
+      <div class="coldmix-summary-text">
+        <p>
+          <b>ColdMix Bitumen</b> is a ready-to-use, cold-applied bituminous mixture designed for quick and effective road repairs and maintenance. It eliminates the need for heating, making it safer and more convenient for patching potholes and minor roadwork.<br><br>
+          <b>What is ColdMix?</b><br>
+          ColdMix is produced by blending bitumen emulsion with selected aggregates at ambient temperature. The mixture remains workable at lower temperatures and can be applied directly from the bag or container, providing a fast and efficient solution for road maintenance.<br><br>
+          <b>Why ColdMix?</b>
+        </p>
+        <ul>
+          <li>Easy and safe to use—no heating required</li>
+          <li>Quick application and traffic-ready within hours</li>
+          <li>Works in all weather conditions, including wet or cold environments</li>
+        </ul>
+        <p>
+          ColdMix Bitumen is ideal for pothole repairs, patching, edge repairs, and small-scale surfacing, offering a cost-effective and durable alternative to traditional hot mix asphalt.
+        </p>
+          </div>
+          <div class="coldmix-summary-image">
+        <img id="coldmiximg" src="coldmix.png" alt="ColdMix Bitumen Sample" style="max-width: 80%;"/>
+          </div>
+        </section>
+
+        <section class="coldmix-section">
+          <h2>Applications</h2>
+          <ul>
+        <li>Pothole and patch repairs</li>
+        <li>Edge and shoulder repairs</li>
+        <li>Temporary surfacing and utility reinstatements</li>
+          </ul>
+        </section>
+
+        <p id="rate-info" style="font-weight: 600; margin-bottom: 30px;"></p>
+
+        <section class="coldmix-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">What is ColdMix Bitumen?</div>
+          <div class="faq-answer">
+        ColdMix Bitumen is a pre-mixed, cold-applied asphalt mixture used for road repairs and maintenance without the need for heating.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What are the benefits of using ColdMix?</div>
+          <div class="faq-answer">
+        ColdMix is easy to use, requires no heating, can be applied in any weather, and allows roads to be reopened to traffic quickly after repairs.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is ColdMix durable?</div>
+          <div class="faq-answer">
+        Yes, ColdMix provides a strong and flexible repair that can withstand traffic loads and adverse weather conditions.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Where can ColdMix be used?</div>
+          <div class="faq-answer">
+        ColdMix is suitable for pothole repairs, patching, edge repairs, and temporary surfacing on highways, city roads, and rural roads.
+          </div>
+        </div>
+          </div>
+        </div>
+     </div>
+    </section>
+  </main>
+
+  <p><a href="index.html#products" class="btn btn-secondary" style="margin-top: 30px; display: inline-block;">&#8592; Back to Products</a></p>
+  </section>
+
+  <footer style="background-color: var(--color-surface); text-align: center; padding: 20px 0; border-top: 1px solid var(--color-border);">
+    <p style="color: var(--color-text-muted);">&copy; 2023-2025 First Choice Bitumen Industries. Our Purity is Our Identity.</p>
+  </footer>
+
+  <a id="back-to-top" href="#" title="Back to top">↑</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RS-1 Emulsion - First Choice Bitumen Industries</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .ms-summary-container {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      margin-bottom: 70px;
+      margin-top: 30px;
+      justify-content: space-between;
+    }
+    .ms-summary-text {
+      flex: 1 1 60%;
+      font-size: 1.45rem;
+      line-height: 2.1;
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .ms-summary-image {
+      flex: 1 1 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .ms-summary-image img {
+      width: 360px;
+      max-width: 100%;
+      max-height: 410px;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      background: #eaeaea;
+    }
+    .ms-summary-image label {
+      display: block;
+      margin-top: 8px;
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      text-align: right;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+      opacity: 0;
+      margin: 0 0 10px 0;
+      border-left: 3px solid var(--color-primary);
+      padding-left: 1em;
+    }
+    .faq-question {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 28px;
+      font-size: 1.15rem;
+      color: var(--color-primary);
+      position: relative;
+      letter-spacing: 0.01em;
+    }
+    .faq-question::after {
+      content: '▼';
+      float: right;
+      font-size: 0.8em;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      opacity: 1;
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(180deg);
+    }
+    .ms-section {
+      margin-bottom: 2.4em;
+    }
+    .ms-section h2 {
+      margin-top: 2em;
+      margin-bottom: 15px;
+      color: var(--color-primary);
+      font-size: 1.5rem;
+    }
+    .ms-section ul {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    #rate-info {
+      font-weight: 600;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 900px) {
+      .ms-summary-container {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .ms-summary-image {
+        align-items: flex-start;
+        margin-bottom: 16px;
+      }
+      .ms img {
+        width: 100%;
+        max-height: 280px;
+      }
+      .ms-summary-text {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+  <script>
+    // FAQ animation
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const container = q.parentElement;
+          container.classList.toggle('open');
+        });
+      });
+      // Optional: RS-1 image dynamic preview
+      const fileInput = document.getElementById('msimgfile');
+      if(fileInput){
+        fileInput.addEventListener('change', function(e){
+          const img = document.getElementById('msimg');
+          if (this.files && this.files[0]) {
+            img.src = URL.createObjectURL(this.files[0]);
+            img.style.display='block';
+          }
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo"><img src="logo.png" alt="First Choice Bitumen Logo" /></a>
+      <ul class="nav-links">
+        <li>
+          <a href="#">Products</a>
+          <ul class="dropdown">
+            <li><a href="rs1.html">RS-1</a></li>
+            <li><a href="ss1.html">SS-1</a></li>
+            <li><a href="ms.html">MS</a></li>
+            <li><a href="coldmix.html">ColdMix</a></li>
+            <li><a href="wasteplastic.html">Waste Plastic</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+  <span class="hamburger-bar"></span>
+  <span class="hamburger-bar"></span>
+  <span class="hamburger-bar"></span>
+</button>
+<!-- Mobile navigation -->
+    <ul id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <li>
+        <button class="mobile-dropdown-toggle" aria-expanded="false" aria-controls="mobile-products-submenu">Products</button>
+        <ul id="mobile-products-submenu" class="mobile-dropdown">
+          <li><a href="rs1.html">RS-1</a></li>
+          <li><a href="ss1.html">SS-1</a></li>
+          <li><a href="ms.html">MS</a></li>
+          <li><a href="coldmix.html">ColdMix</a></li>
+          <li><a href="wasteplastic.html">Waste Plastic</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+      <div class="nav-extra">
+        <button id="theme-toggle" title="Toggle theme"></button>
+      </div>
+    </nav>
+  </header>
+<section class="hero">  
+  <div class="hero-background-ms"></div>
+  <div class="hero-content" style="margin-top: 300px;">
+    <h1>MS (Medium Setting) Emulsion</h1>
+  </div>
+</section>
+
+  <main class="container" style="padding: 100px 20px 60px;">
+    <section class="ms-summary-container">
+      <div class="ms-summary-text">
+        <p>
+          <b>MS</b> stands for <b>Medium Setting Cationic Bitumen Emulsion</b>, engineered for applications that require a balance between workability and quick setting. MS emulsions are ideal for premix applications, patching, and surface dressing where moderate mixing time and rapid strength development are needed.<br><br>
+          <b>What is MS?</b><br>
+          MS is produced by blending premium bitumen, water, and specialized emulsifiers to create a stable emulsion with medium setting characteristics. This allows enough time for mixing with aggregates while ensuring the emulsion breaks and sets quickly after application, providing strong adhesion and durability.<br><br>
+          <b>Why MS?</b>
+        </p>
+        <ul>
+          <li>Balanced workability and setting time</li>
+          <li>Excellent adhesion to aggregates</li>
+          <li>Suitable for patching and surface dressing</li>
+        </ul>
+        <p>
+          MS emulsion is the preferred choice for cold mix, patch repair, and surface treatments where both workable mixing time and rapid strength gain are essential for efficient road maintenance and construction.
+        </p>
+          </div>
+          <div class="ms-summary-image">
+        <img id="msimg" src="ms.png" alt="MS Bitumen Emulsion Sample" style="max-width: 80%;"/>
+          </div>
+        </section>
+
+        <section class="ms-section">
+          <h2>Applications</h2>
+          <ul>
+        <li>Cold mix for patching and repairs</li>
+        <li>Surface dressing and maintenance</li>
+        <li>Premix for road construction</li>
+          </ul>
+        </section>
+
+        <p id="rate-info" style="font-weight: 600; margin-bottom: 30px;"></p>
+
+        <section class="ms-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">What is MS emulsion?</div>
+          <div class="faq-answer">
+        MS is a medium setting cationic bitumen emulsion designed for applications like cold mix, patching, and surface dressing, offering a balance between workability and quick setting.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is the coverage per drum?</div>
+          <div class="faq-answer">
+        Coverage depends on the application and aggregate type, but typically ranges from 80–100 m² per 200kg drum for surface dressing. Actual coverage may vary based on surface conditions.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can MS emulsion be mixed with aggregates?</div>
+          <div class="faq-answer">
+        Yes, MS emulsion is specifically formulated for mixing with aggregates in cold mix and patching applications, providing good coating and adhesion.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How should MS emulsion be stored?</div>
+          <div class="faq-answer">
+        Store MS emulsion in tightly sealed drums, away from direct sunlight and freezing temperatures. Stir gently before use if stored for extended periods.
+          </div>
+        </div>
+     </div>
+    </section>
+  </main>
+
+  <p><a href="index.html#products" class="btn btn-secondary" style="margin-top: 30px; display: inline-block;">&#8592; Back to Products</a></p>
+  </section>
+
+  <footer style="background-color: var(--color-surface); text-align: center; padding: 20px 0; border-top: 1px solid var(--color-border);">
+    <p style="color: var(--color-text-muted);">&copy; 2023-2025 First Choice Bitumen Industries. Our Purity is Our Identity.</p>
+  </footer>
+
+  <a id="back-to-top" href="#" title="Back to top">↑</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
