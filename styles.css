@@ -868,3 +868,18 @@ body.fade-out {
 body.fade-out.hidden {
   opacity: 0;
 }
+#hamburger {
+  background: rgba(255,255,255,0.1);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #4fa2e733, 0 4px 32px #e3b44833;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.25s;
+}
+#hamburger:hover,
+#hamburger:focus {
+  background: rgba(255,255,224,0.22);
+  box-shadow: 0 0 37px #e3b44855, 0 4px 48px #6be4ff46;
+}
+#hamburger svg { display: block; }

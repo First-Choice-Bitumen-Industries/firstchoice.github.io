@@ -249,41 +249,74 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-function createHamburgerIcon() {
+function createPremiumHamburgerIcon() {
   const svgNS = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(svgNS, "svg");
-  svg.setAttribute("width", "36");
-  svg.setAttribute("height", "36");
+  svg.setAttribute("width", "40");
+  svg.setAttribute("height", "40");
   svg.setAttribute("viewBox", "0 0 24 24");
   svg.setAttribute("fill", "none");
-  svg.setAttribute("stroke", "currentColor");
-  svg.setAttribute("stroke-width", "2.5");
-  svg.setAttribute("stroke-linecap", "round");
-  svg.setAttribute("stroke-linejoin", "round");
 
-  // Three lines for the hamburger icon
-  const lines = [
-    { x1: 3, y1: 7, x2: 21, y2: 7 },
-    { x1: 3, y1: 12, x2: 21, y2: 12 },
-    { x1: 3, y1: 17, x2: 21, y2: 17 }
-  ];
+  // Gradient definition for line stroke
+  const defs = document.createElementNS(svgNS, "defs");
+  const linearGrad = document.createElementNS(svgNS, "linearGradient");
+  linearGrad.setAttribute("id", "menuGrad");
+  linearGrad.setAttribute("x1", "0%");
+  linearGrad.setAttribute("y1", "0%");
+  linearGrad.setAttribute("x2", "100%");
+  linearGrad.setAttribute("y2", "0%");
 
-  lines.forEach(coords => {
+  const stop1 = document.createElementNS(svgNS, "stop");
+  stop1.setAttribute("offset", "0%");
+  stop1.setAttribute("stop-color", "#4fa2e7");
+  stop1.setAttribute("stop-opacity", "0.6");
+  const stop2 = document.createElementNS(svgNS, "stop");
+  stop2.setAttribute("offset", "100%");
+  stop2.setAttribute("stop-color", "#e3b448");
+  stop2.setAttribute("stop-opacity", "0.6");
+
+  linearGrad.appendChild(stop1);
+  linearGrad.appendChild(stop2);
+  defs.appendChild(linearGrad);
+  svg.appendChild(defs);
+
+  // Create three premium lines
+  [7, 12, 17].forEach((y, i) => {
     const line = document.createElementNS(svgNS, "line");
-    line.setAttribute("x1", coords.x1);
-    line.setAttribute("y1", coords.y1);
-    line.setAttribute("x2", coords.x2);
-    line.setAttribute("y2", coords.y2);
+    line.setAttribute("x1", 3);
+    line.setAttribute("y1", y);
+    line.setAttribute("x2", 21);
+    line.setAttribute("y2", y);
+
+    line.setAttribute("stroke", "url(#menuGrad)");
+    line.setAttribute("stroke-width", "3");
+    line.setAttribute("stroke-linecap", "round");
+    line.setAttribute("opacity", "0.9");
+
+    // Animation on hover: expand/thin/thicken/opacity/translate
+    line.addEventListener("mouseenter", () => {
+      line.setAttribute("stroke-width", "5");
+      line.setAttribute("opacity", "1");
+      if (i === 1) line.setAttribute("x1", 1); // slightly expand middle line
+    });
+    line.addEventListener("mouseleave", () => {
+      line.setAttribute("stroke-width", "3");
+      line.setAttribute("opacity", "0.9");
+      if (i === 1) line.setAttribute("x1", 3);
+    });
+    line.style.transition = "all 0.3s cubic-bezier(.4,0,.2,1)";
+
     svg.appendChild(line);
   });
 
   return svg;
 }
+
+// Usage after dom loaded:
 document.addEventListener('DOMContentLoaded', () => {
   const hamburgerBtn = document.getElementById('hamburger');
-  if (hamburgerBtn) {
-    // Remove existing children if any (for idempotency)
-    while (hamburgerBtn.firstChild) hamburgerBtn.removeChild(hamburgerBtn.firstChild);
-    hamburgerBtn.appendChild(createHamburgerIcon());
+  if(hamburgerBtn) {
+    hamburgerBtn.innerHTML = '';
+    hamburgerBtn.appendChild(createPremiumHamburgerIcon());
   }
 });
