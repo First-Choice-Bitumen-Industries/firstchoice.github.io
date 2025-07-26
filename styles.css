@@ -40,32 +40,32 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   font-family: var(--font-primary);
-  font-size: 18px; /* increased base font size from 16px */
+  font-size: 16px; /* increased base font size from 16px */
   background-color: var(--color-background);
   color: var(--color-text);
-  line-height: 1.7; /* slightly increased */
+  line-height: 1.4; /* slightly increased */
   transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px; /* increased padding */
+  padding: 0 20px; /* increased padding */
 }
 
 /* Headings */
 h1, .section-title {
-  font-size: 3rem; /* increased from 2.5rem */
+  font-size: 2.5rem; /* increased from 2.5rem */
   font-weight: 700;
   text-align: center;
-  margin-bottom: 60px; /* increased from 50px */
+  margin-bottom: 50px; /* increased from 50px */
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 h2 {
-  font-size: 2.5rem; /* increase if used anywhere */
+  font-size: 2.0rem; /* increase if used anywhere */
 }
 
 /* Paragraphs */
@@ -78,7 +78,7 @@ p {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 16px 32px; /* increased both */
+  padding: 10px 24px; /* increased both */
   border-radius: var(--border-radius);
   font-weight: 600;
   text-decoration: none;
@@ -472,7 +472,9 @@ footer {
   text-align: center;
   border-top: 1px solid var(--color-border);
   margin-top: 30px; /* bigger margin */
-}
+  display: flex;
+  justify-content: center; /* Horizontally centers the text */
+  align-items: center;    /* Vertically centers the text */}
 
 footer p {
   color: var(--color-text-muted);
@@ -713,7 +715,7 @@ footer p {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
+  background-image: url('rs1-hero.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -752,7 +754,7 @@ footer p {
   background-attachment: fixed;
   filter: brightness(0.7);
   z-index: 1;
-  background-image: url('https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-image: url('ss1-hero.png');
 }
 /* Only for MS page hero */
 .hero-background-ms {
@@ -765,7 +767,7 @@ footer p {
   background-attachment: fixed;
   filter: brightness(0.7);
   z-index: 1;
-  background-image: url('https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-image: url('ms-hero.png');
 }
 /* Only for Waste Plastic page hero */
 .hero-background-wp {
@@ -778,6 +780,91 @@ footer p {
   background-attachment: fixed;
   filter: brightness(0.7);
   z-index: 1;
-  background-image: url('https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-image: url('wp-hero.png');
+}
+/* Only for ColdMix page hero */
+.hero-background-coldmix {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: brightness(0.7);
+  z-index: 1;
+  background-image: url('wp-hero.png');
+}
+/* Desktop (default) */
+#hamburger,
+.mobile-nav {
+  display: none;
 }
 
+/* Desktop nav always visible on desktop */
+.nav-links {
+  display: flex;
+}
+
+/* Mobile styles */
+@media (max-width: 992px) {
+  /* Hide desktop nav on mobile */
+  .nav-links {
+    display: none;
+  }
+  /* Hamburger is visible on mobile */
+  #hamburger {
+    display: flex;
+  }
+  /* Mobile nav is fixed, starts hidden, only shown when .open is set via JS */
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 90px; /* match your header height */
+    left: 0;
+    width: 100%;
+    background: var(--color-surface, #fff);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    z-index: 5000;
+    transition: max-height 0.3s, opacity 0.3s;
+    border-top: 1px solid #e2e8f0;
+  }
+  .mobile-nav.open {
+    max-height: 1000px; /* enough for all links */
+    opacity: 1;
+    overflow-y: auto;
+  }
+  .mobile-nav li a, .mobile-nav button.mobile-dropdown-toggle {
+    padding: 16px 24px;
+    color: var(--color-text, #222);
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+  }
+}
+/* Initial state on page load: hidden + fade-in */
+body.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+body.fade-in.visible {
+  opacity: 1;
+}
+
+/* Fade-out before navigating */
+body.fade-out {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+body.fade-out.hidden {
+  opacity: 0;
+}

@@ -193,3 +193,97 @@ document.addEventListener('DOMContentLoaded', () => {
     rateInfoElement.textContent = `The rate of ${productNameMap[productKey]} as of ${formattedDate} is ₹${rates[productKey]}/Drum.`;
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileNav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    });
+  }
+
+  // Mobile Products dropdown toggle
+  const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+  const mobileDropdownMenu = document.getElementById('mobile-products-submenu');
+
+  if (mobileDropdownToggle && mobileDropdownMenu) {
+    mobileDropdownToggle.addEventListener('click', () => {
+      const expanded = mobileDropdownToggle.getAttribute('aria-expanded') === 'true';
+      mobileDropdownToggle.setAttribute('aria-expanded', String(!expanded));
+      mobileDropdownMenu.classList.toggle('open');
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+
+  // Fade in the page on load
+  requestAnimationFrame(() => {
+    body.classList.add('visible');
+  });
+
+  // Animate fade-out on navigation link click in nav
+  document.querySelectorAll('nav a').forEach(link => {
+    // Only animate for internal links, avoid external or hash links
+    if (link.hostname === window.location.hostname && link.pathname !== window.location.pathname) {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const href = link.href;
+
+        body.classList.remove('visible');
+        body.classList.add('fade-out');
+        requestAnimationFrame(() => {
+          body.classList.add('hidden');
+        });
+
+        body.addEventListener('transitionend', () => {
+          window.location.href = href;
+        }, { once: true });
+      });
+    }
+  });
+});
+function createHamburgerIcon() {
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("width", "36");
+  svg.setAttribute("height", "36");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("fill", "none");
+  svg.setAttribute("stroke", "currentColor");
+  svg.setAttribute("stroke-width", "2.5");
+  svg.setAttribute("stroke-linecap", "round");
+  svg.setAttribute("stroke-linejoin", "round");
+
+  // Three lines for the hamburger icon
+  const lines = [
+    { x1: 3, y1: 7, x2: 21, y2: 7 },
+    { x1: 3, y1: 12, x2: 21, y2: 12 },
+    { x1: 3, y1: 17, x2: 21, y2: 17 }
+  ];
+
+  lines.forEach(coords => {
+    const line = document.createElementNS(svgNS, "line");
+    line.setAttribute("x1", coords.x1);
+    line.setAttribute("y1", coords.y1);
+    line.setAttribute("x2", coords.x2);
+    line.setAttribute("y2", coords.y2);
+    svg.appendChild(line);
+  });
+
+  return svg;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerBtn = document.getElementById('hamburger');
+  if (hamburgerBtn) {
+    // Remove existing children if any (for idempotency)
+    while (hamburgerBtn.firstChild) hamburgerBtn.removeChild(hamburgerBtn.firstChild);
+    hamburgerBtn.appendChild(createHamburgerIcon());
+  }
+});

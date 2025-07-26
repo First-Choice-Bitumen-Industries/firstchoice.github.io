@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,7 +39,7 @@
     }
   </style>
 </head>
-<body>
+<body class="fade-in">
   <!-- Loader -->
   <div id="loader"><div class="spinner"></div></div>
 
@@ -50,7 +50,7 @@
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li>
-          <a href="#products">Products</a>
+          <a href>Products</a>
           <ul class="dropdown">
             <li><a href="rs1.html">RS-1</a></li>
             <li><a href="ss1.html">SS-1</a></li>
@@ -62,6 +62,27 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+  <span class="hamburger-bar"></span>
+  <span class="hamburger-bar"></span>
+  <span class="hamburger-bar"></span>
+</button>
+        <!-- Mobile navigation -->
+    <ul id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <button class="mobile-dropdown-toggle" aria-expanded="false" aria-controls="mobile-products-submenu">Products</button>
+        <ul id="mobile-products-submenu" class="mobile-dropdown">
+          <li><a href="rs1.html">RS-1</a></li>
+          <li><a href="ss1.html">SS-1</a></li>
+          <li><a href="ms.html">MS</a></li>
+          <li><a href="coldmix.html">ColdMix</a></li>
+          <li><a href="wasteplastic.html">Waste Plastic</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
       <div class="nav-extra">
         <button id="theme-toggle" title="Toggle theme"></button>
       </div>
@@ -200,8 +221,8 @@
   </section>
 
   <!-- Footer -->
-  <footer style="background-color: var(--color-surface); padding: 20px 0; text-align: center; border-top: 1px solid var(--color-border); margin-top: 50px;">
-    <p style="color: var(--color-text-muted)">&copy; 2023-2025 First Choice Bitumen Industries. Our Purity is Our Identity.</p>
+  <footer> 
+  <p style="color: var(--color-text-muted)">&copy; 2023-2025 First Choice Bitumen Industries. Our Purity is Our Identity.</p>
   </footer>
 
   <!-- Back to top button -->
