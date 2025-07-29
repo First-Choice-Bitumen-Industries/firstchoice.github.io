@@ -962,3 +962,45 @@ body.fade-out.hidden {
     justify-content: center;
   }
 }
+/* --- Mobile Layout Fixes --- */
+
+/* 
+  Apply these rules only to screens smaller than 768px (common for tablets and phones).
+  You can adjust the max-width value as needed.
+*/
+@media (max-width: 768px) {
+
+  /* 
+    Select the parent containers of the overflowing text. 
+    You may need to inspect your HTML to find the correct class or ID selectors.
+    This example uses generic class names like .section-container and .text-content.
+  */
+  .section-container, 
+  .text-content,
+  .product-box,
+  .contact-info {
+    width: 100%; /* Ensure containers use the full available width */
+    max-width: 100%; /* Prevent containers from exceeding the screen width */
+    padding-left: 15px; /* Add some padding for better spacing */
+    padding-right: 15px; /* Add some padding for better spacing */
+    box-sizing: border-box; /* Ensures padding is included in the total width/height */
+  }
+
+  /*
+    Force text to wrap within its container. This is the key fix for long strings of text.
+    The 'p' selector targets paragraph text, but you might also need to apply this to headings (h1, h2, etc.)
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word; /* Breaks long words to prevent overflow */
+    word-wrap: break-word; /* Legacy property for older browser support */
+    hyphens: auto; /* Optional: Allows automatic hyphenation for cleaner breaks */
+  }
+
+  /*
+    It's also good practice to prevent horizontal scrolling on the entire page
+    as a fallback, though fixing the overflowing elements is the better solution.
+  */
+  body {
+    overflow-x: hidden;
+  }
+}
